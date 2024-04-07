@@ -1,0 +1,16 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Daytime : MonoBehaviour
+{
+    public float secondsInDay = 120;
+    [Range(0,1)]
+    public float daytime = 0;
+
+    void Update ()
+    {
+        daytime += Time.deltaTime / secondsInDay;  //fps = frame per second = кадров в секунду
+        transform.localRotation = Quaternion.Euler((daytime * 360) - 90,170,0);
+    }
+}
